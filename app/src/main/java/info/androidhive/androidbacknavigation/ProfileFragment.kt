@@ -3,19 +3,19 @@ package info.androidhive.androidbacknavigation
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import info.androidhive.androidbacknavigation.databinding.FragmentSecondBinding
+import info.androidhive.androidbacknavigation.databinding.FragmentProfileBinding
 
-class SecondFragment : Fragment() {
-    private var _binding: FragmentSecondBinding? = null
-    private val binding get() = _binding!!
+class ProfileFragment : Fragment() {
+    private val binding by lazy {
+        FragmentProfileBinding.inflate(layoutInflater)
+    }
 
     private val backPressCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
@@ -26,7 +26,6 @@ class SecondFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -89,7 +88,6 @@ class SecondFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
 
         // removing callback is always not necessary
         // but while using navigation component, the older listener still attached

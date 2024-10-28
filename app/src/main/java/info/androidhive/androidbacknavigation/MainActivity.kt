@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     private val navControllerListener =
         NavController.OnDestinationChangedListener { _, destination, _ ->
             // enable back press callback when destination is home fragment
-            backPressCallback.isEnabled = destination.id == R.id.FirstFragment
+            backPressCallback.isEnabled = destination.id == R.id.HomeFragment
         }
 
     /**
